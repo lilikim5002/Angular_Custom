@@ -1,0 +1,24 @@
+<div class="searchbar">
+  <div class="bar">
+    <input type="text" #searchbar [(ngModel)]="searchInput" (keyup)="fetchSeries(searchbar.value)" placeholder="Enter the name of your series" />
+  </div>
+  <ul>
+    <li *ngFor="let show of searchResult" (click)="showDetails(show)">
+      <p> {{ show.name }}</p>
+    </li>
+  </ul>
+  <div *ngIf="toggle" class="details">
+    <h4 class="title">
+      Title: {{ selectedInput.name }}
+    </h4>
+    <p class="description">
+      <span class="sub-heading">Description: </span> {{selectedInput.description}}
+    </p>
+    <p class="release">
+      <span class="sub-heading">Release Date: </span>{{selectedInput.releaseDate}}
+    </p>
+    <p class="genre">
+      <span class="sub-heading">Genres: </span> {{selectedInput.genres}}
+    </p>
+  </div>
+</div>
